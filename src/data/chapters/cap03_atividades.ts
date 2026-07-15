@@ -25,6 +25,7 @@ export const atividades = [
 
       <h3>Integração Nativa com H5P no Moodle 5.2</h3>
       <p>O Moodle absorveu o H5P diretamente no Core do sistema via o <strong>Banco de Conteúdo (Content Bank)</strong>. O professor cria conteúdo interativo diretamente no navegador ou faz upload de um arquivo <code>.h5p</code>. O Moodle registra todas as interações e lança a pontuação diretamente no <strong>Livro de Notas</strong>, tudo renderizado em HTML5 responsivo!</p>
+      <img src="/images/moodle_h5p_quiz.png" alt="Interface de edição de questão H5P no Moodle" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); margin: 2rem 0; border: 1px solid #eaeaea;" />
       
       <h3>Tipos de Conteúdo H5P Mais Populares</h3>
       <p>São mais de 40 tipos de conteúdo disponíveis, incluindo:</p>

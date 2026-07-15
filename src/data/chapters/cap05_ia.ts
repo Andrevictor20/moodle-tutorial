@@ -6,6 +6,7 @@ export const ia = [
     icon: "smart_toy",
     content: `
       <p>O Moodle 5.2 trouxe uma das adições mais revolucionárias da história da plataforma: a integração nativa de <strong>provedores de Inteligência Artificial</strong> diretamente no Core do sistema. Isso significa que administradores não precisam mais de plugins de terceiros para conectar modelos de IA — tudo é configurado via <em>Site Administration → General → AI providers</em>.</p>
+      <img src="/images/moodle_ai_providers.png" alt="Interface de configuração de provedores de IA no Moodle" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); margin: 2rem 0; border: 1px solid #eaeaea;" />
 
       <div class="mermaid" style="text-align: center; margin: 2rem 0;">
       flowchart TD
