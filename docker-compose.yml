@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  moodle-tutorial:
+    image: ghcr.io/andrevmp/moodle-tutorial:latest
+    container_name: moodle-tutorial
+    ports:
+      - "9800:3000"
+    restart: unless-stopped
+
+  # Watchtower monitora as imagens Docker e atualiza automaticamente (CD)
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 300 # Verifica a cada 5 minutos
+    restart: unless-stopped

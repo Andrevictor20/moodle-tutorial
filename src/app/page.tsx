@@ -1,65 +1,224 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { useState, useEffect } from "react";
+import { chapters } from "@/data/chapters";
+
+export default function App() {
+  const [activeChapter, setActiveChapter] = useState(chapters[0]);
+  const [theme, setTheme] = useState("light");
+  const [isSidebarOpen, setSidebarOpen] = useState(true);
+  const [completed, setCompleted] = useState<string[]>([]);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("moodle_tutorial_theme") || "light";
+    setTheme(savedTheme);
+    document.documentElement.setAttribute("data-theme", savedTheme);
+
+    const savedProgress = localStorage.getItem("moodle_tutorial_progress");
+    if (savedProgress) {
+      setCompleted(JSON.parse(savedProgress));
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("moodle_tutorial_theme", newTheme);
+  };
+
+  const markCompleted = (id: string) => {
+    if (!completed.includes(id)) {
+      const newCompleted = [...completed, id];
+      setCompleted(newCompleted);
+      localStorage.setItem("moodle_tutorial_progress", JSON.stringify(newCompleted));
+    }
+  };
+
+  useEffect(() => {
+    markCompleted(activeChapter.id);
+  }, [activeChapter]);
+
+  const progressPercent = Math.round((completed.length / chapters.length) * 100);
+
+  // Agrupar menus
+  const grouped = chapters.reduce((acc, chap) => {
+    if (!acc[chap.category]) acc[chap.category] = [];
+    acc[chap.category].push(chap);
+    return acc;
+  }, {} as Record<string, typeof chapters>);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      {/* Sidebar Navigation */}
+      <nav className={`sidebar ${!isSidebarOpen ? "collapsed" : ""}`} id="sidebar">
+        <div className="sidebar-header">
+          <div className="logo">
+            <span className="material-icons-round">school</span>
+            <h2>MoodleMaster</h2>
+          </div>
+          <button className="toggle-btn" onClick={() => setSidebarOpen(!isSidebarOpen)}>
+            <span className="material-icons-round">
+              {isSidebarOpen ? "menu_open" : "menu"}
+            </span>
+          </button>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+
+        <div className="search-bar">
+          <span className="material-icons-round">search</span>
+          <input type="text" placeholder="Buscar na apostila..." />
+        </div>
+
+        <div className="menu-container">
+          <ul className="menu-list">
+            {Object.keys(grouped).map((category) => (
+              <div key={category}>
+                <li className="menu-category">{category}</li>
+                {grouped[category].map((chap) => (
+                  <li
+                    key={chap.id}
+                    className={`menu-item ${activeChapter.id === chap.id ? "active" : ""}`}
+                    onClick={() => setActiveChapter(chap)}
+                  >
+                    <span className="material-icons-round">{chap.icon}</span>{" "}
+                    {chap.title}
+                  </li>
+                ))}
+              </div>
+            ))}
+          </ul>
+        </div>
+      </nav>
+
+      {/* Main Content Area */}
+      <main className="main-content">
+        {/* Topbar */}
+        <header className="topbar">
+          <div className="topbar-left">
+            <button className="mobile-menu-btn" onClick={() => setSidebarOpen(!isSidebarOpen)}>
+              <span className="material-icons-round">menu</span>
+            </button>
+            <div className="progress-container">
+              <span className="progress-text">{progressPercent}% Concluído</span>
+              <div className="progress-bar-bg">
+                <div
+                  className="progress-bar-fill"
+                  style={{ width: `${progressPercent}%` }}
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <div className="topbar-right">
+            <button className="icon-btn theme-toggle" onClick={toggleTheme}>
+              <span className="material-icons-round">
+                {theme === "light" ? "dark_mode" : "light_mode"}
+              </span>
+            </button>
+            <a href="/Apostila_Moodle_Completa.pdf" download className="icon-btn" title="Exportar para PDF">
+              <span className="material-icons-round">picture_as_pdf</span>
+            </a>
+          </div>
+        </header>
+
+        {/* Dynamic Content Container */}
+        <div className="content-wrapper" id="content-area">
+          <div className="chapter-container">
+            <div className="chapter-header">
+              <div className="chapter-meta">
+                <span className="material-icons-round" style={{ fontSize: "1.1rem" }}>
+                  schedule
+                </span>
+                <span>{activeChapter.time} de leitura</span>
+                <span style={{ margin: "0 0.5rem" }}>•</span>
+                <span className="material-icons-round" style={{ fontSize: "1.1rem" }}>
+                  local_offer
+                </span>
+                <span>{activeChapter.category}</span>
+              </div>
+              <h1>{activeChapter.title}</h1>
+            </div>
+
+            <div
+              className="content-section"
+              dangerouslySetInnerHTML={{ __html: activeChapter.content }}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+            <QuizComponent quiz={activeChapter.quiz} />
+          </div>
         </div>
       </main>
+    </>
+  );
+}
+
+function QuizComponent({ quiz }: { quiz: any }) {
+  const [selected, setSelected] = useState<number | null>(null);
+  const [verified, setVerified] = useState(false);
+
+  // Reset when quiz changes
+  useEffect(() => {
+    setSelected(null);
+    setVerified(false);
+  }, [quiz]);
+
+  if (!quiz) return null;
+
+  return (
+    <div className="quiz-container">
+      <div className="quiz-header">
+        <span className="material-icons-round">psychology</span>
+        <h3>Verifique seu conhecimento</h3>
+      </div>
+      <p className="quiz-question">{quiz.question}</p>
+
+      <div className="quiz-options">
+        {quiz.options.map((opt: string, idx: number) => {
+          let className = "quiz-option";
+          if (selected === idx) className += " selected";
+          if (verified) {
+            if (idx === quiz.correct_index) className += " correct";
+            else if (selected === idx) className += " wrong";
+          }
+
+          return (
+            <label
+              key={idx}
+              className={className}
+              onClick={() => {
+                if (!verified) setSelected(idx);
+              }}
+            >
+              <div className="option-marker"></div>
+              <span>{opt}</span>
+            </label>
+          );
+        })}
+      </div>
+
+      <div className="quiz-actions">
+        <button
+          className="btn btn-primary btn-verify"
+          disabled={selected === null || verified}
+          onClick={() => setVerified(true)}
+        >
+          Verificar
+        </button>
+      </div>
+
+      {verified && (
+        <div
+          className={`quiz-feedback show ${
+            selected === quiz.correct_index ? "success" : "error"
+          }`}
+        >
+          {selected === quiz.correct_index ? (
+            <span dangerouslySetInnerHTML={{__html: `<strong>Correto!</strong> ${quiz.feedback_correct}`}}></span>
+          ) : (
+             <span dangerouslySetInnerHTML={{__html: `<strong>Incorreto.</strong> ${quiz.feedback_wrong}`}}></span>
+          )}
+        </div>
+      )}
     </div>
   );
 }
