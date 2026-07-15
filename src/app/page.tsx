@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import mermaid from "mermaid";
 import { chapters } from "@/data/chapters";
 
 export default function App() {
@@ -41,12 +42,32 @@ export default function App() {
 
   const progressPercent = Math.round((completed.length / chapters.length) * 100);
 
-  // Agrupar menus
   const grouped = chapters.reduce((acc, chap) => {
     if (!acc[chap.category]) acc[chap.category] = [];
     acc[chap.category].push(chap);
     return acc;
   }, {} as Record<string, typeof chapters>);
+
+  useEffect(() => {
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: theme === "dark" ? "dark" : "default",
+    });
+  }, [theme]);
+
+  useEffect(() => {
+    if (activeChapter) {
+      // Pequeno timeout para garantir que o DOM do dangerouslySetInnerHTML foi pintado
+      setTimeout(() => {
+        const elements = document.querySelectorAll('.mermaid');
+        if (elements.length > 0) {
+          // Limpa o atributo 'data-processed' para o mermaid re-renderizar caso mudemos de aba/tema
+          elements.forEach(el => el.removeAttribute('data-processed'));
+          mermaid.run({ querySelector: '.mermaid' }).catch(console.error);
+        }
+      }, 50);
+    }
+  }, [activeChapter, theme]);
 
   return (
     <>

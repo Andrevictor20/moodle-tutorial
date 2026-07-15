@@ -17,6 +17,13 @@ export default function PrintPage() {
     });
   }, []);
 
+  // Agrupar capítulos por categoria para o sumário
+  const grouped = chapters.reduce((acc, chap, idx) => {
+    if (!acc[chap.category]) acc[chap.category] = [];
+    acc[chap.category].push({ ...chap, index: idx + 1 });
+    return acc;
+  }, {} as Record<string, (typeof chapters[0] & { index: number })[]>);
+
   return (
     <div className="print-only-layout" style={{ backgroundColor: 'white', color: 'black', minHeight: '100vh' }}>
       
@@ -26,17 +33,48 @@ export default function PrintPage() {
           school
         </span>
         <h1 style={{ fontSize: "4rem", marginTop: "2rem", color: "black" }}>MoodleMaster</h1>
-        <h2 style={{ fontSize: "2rem", color: "#444", fontWeight: "normal" }}>O Guia Definitivo e Interativo</h2>
-        <p style={{ marginTop: "4rem", color: "#666", fontSize: "1.2rem" }}>
-          Gerado automaticamente a partir da versão Web
+        <h2 style={{ fontSize: "2rem", color: "#444", fontWeight: "normal" }}>O Guia Definitivo do Moodle 5.2</h2>
+        <p style={{ marginTop: "2rem", color: "#666", fontSize: "1.15rem", maxWidth: "500px", lineHeight: "1.8" }}>
+          Cobrindo Fundamentos, Cursos, Atividades, H5P, Questionários,
+          Gamificação, Inteligência Artificial, Banco de Questões,
+          Competências e Infraestrutura de Produção.
+        </p>
+        <p style={{ marginTop: "4rem", color: "#999", fontSize: "1rem" }}>
+          Gerado automaticamente a partir da versão Web — {chapters.length} capítulos
         </p>
       </div>
 
+      {/* Sumário */}
+      <div style={{ pageBreakAfter: "always", padding: "2cm" }}>
+        <h1 style={{ fontSize: "2.5rem", color: "black", borderBottom: "3px solid #f98012", paddingBottom: "1rem", marginBottom: "2rem" }}>
+          <span className="material-icons-round" style={{ fontSize: "2.5rem", verticalAlign: "bottom", marginRight: "1rem", color: "#f98012" }}>toc</span>
+          Sumário
+        </h1>
+        {Object.keys(grouped).map((category) => (
+          <div key={category} style={{ marginBottom: "1.5rem" }}>
+            <h3 style={{ color: "#f98012", fontSize: "1.2rem", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "0.75rem", borderBottom: "1px solid #eee", paddingBottom: "0.5rem" }}>
+              {category}
+            </h3>
+            {grouped[category].map((chap) => (
+              <div key={chap.id} style={{ display: "flex", alignItems: "center", padding: "0.4rem 0", fontSize: "1.1rem" }}>
+                <span className="material-icons-round" style={{ fontSize: "1.2rem", marginRight: "0.75rem", color: "#888" }}>{chap.icon}</span>
+                <span style={{ flex: 1 }}>{chap.title}</span>
+                <span style={{ color: "#aaa", fontSize: "0.95rem" }}>Capítulo {chap.index}</span>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+
       {/* Capítulos */}
-      {chapters.map((chap) => (
+      {chapters.map((chap, idx) => (
         <div key={chap.id} className="chapter-container" style={{ pageBreakAfter: "always", margin: 0, maxWidth: "100%", padding: "2cm" }}>
           <div className="chapter-header" style={{ borderBottom: "2px solid #eee", paddingBottom: "1rem", marginBottom: "2rem" }}>
             <div className="chapter-meta" style={{ display: "flex", alignItems: "center", color: "#666", marginBottom: "1rem" }}>
+              <span style={{ fontSize: "0.95rem", fontWeight: "bold", color: "#f98012", marginRight: "1rem" }}>
+                Capítulo {idx + 1} de {chapters.length}
+              </span>
+              <span style={{ margin: "0 0.5rem", color: "#ccc" }}>•</span>
               <span className="material-icons-round" style={{ fontSize: "1.2rem", marginRight: "0.5rem" }}>
                 local_offer
               </span>
@@ -64,10 +102,10 @@ export default function PrintPage() {
               <p style={{ fontWeight: "bold", marginBottom: "1rem" }}>{chap.quiz.question}</p>
               
               <ul style={{ listStyleType: "none", padding: 0, margin: 0 }}>
-                {chap.quiz.options.map((opt: string, idx: number) => {
-                  const isCorrect = idx === chap.quiz.correct_index;
+                {chap.quiz.options.map((opt: string, optIdx: number) => {
+                  const isCorrect = optIdx === chap.quiz.correct_index;
                   return (
-                    <li key={idx} style={{ padding: "0.5rem", marginBottom: "0.5rem", border: "1px solid #ddd", borderRadius: "4px", backgroundColor: isCorrect ? "#f0fff4" : "white" }}>
+                    <li key={optIdx} style={{ padding: "0.5rem", marginBottom: "0.5rem", border: "1px solid #ddd", borderRadius: "4px", backgroundColor: isCorrect ? "#f0fff4" : "white" }}>
                       {isCorrect ? (
                         <strong><span style={{ color: "#38a169", marginRight: "0.5rem" }}>✓</span> {opt}</strong>
                       ) : (
