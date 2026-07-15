@@ -72,6 +72,7 @@ export const competencias = [
     icon: "route",
     content: `
       <p>Os <strong>Planos de Aprendizagem (Learning Plans)</strong> são a camada de orquestração que conecta competências individuais a jornadas completas de desenvolvimento. Eles permitem que administradores criem <strong>templates reutilizáveis</strong> e os atribuam em massa a alunos ou coortes inteiras.</p>
+      <img src="/images/moodle_learning_plan.png" alt="Plano de Aprendizagem (Learning Plan) atribuído a um aluno no Moodle" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); margin: 2rem 0; border: 1px solid #eaeaea;" />
 
       <div class="mermaid" style="text-align: center; margin: 2rem 0;">
       flowchart LR

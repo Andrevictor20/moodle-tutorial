@@ -59,6 +59,7 @@ export const atividades = [
     icon: "quiz",
     content: `
       <p>Nenhuma outra plataforma possui um motor de questionários com a engenharia de segurança e flexibilidade do Moodle. Projetado para testes de alto risco (exames de certificação de engenharia e medicina), ele separa a <strong>arquitetura das perguntas</strong> (Banco de Questões) da <strong>interface da prova</strong> (Questionário), permitindo reutilização massiva.</p>
+      <img src="/images/moodle_quiz_config.png" alt="Tela de configuração avançada do Questionário no Moodle" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); margin: 2rem 0; border: 1px solid #eaeaea;" />
 
       <div class="mermaid" style="text-align: center; margin: 2rem 0;">
       flowchart LR

@@ -64,6 +64,7 @@ export const administracao = [
     icon: "emoji_events",
     content: `
       <p>Baseados no padrão <strong>Mozilla OpenBadges 2.0</strong>, os Emblemas do Moodle carregam metadados criptográficos na própria imagem PNG, permitindo que os alunos os exportem para plataformas externas como <strong>Badgr</strong> e <strong>LinkedIn</strong>, onde empregadores podem validar matematicamente a autenticidade do certificado digital.</p>
+      <img src="/images/moodle_badge_create.png" alt="Tela de criação de emblemas (badges) no Moodle" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); margin: 2rem 0; border: 1px solid #eaeaea;" />
 
       <div class="mermaid" style="text-align: center; margin: 2rem 0;">
       sequenceDiagram
