@@ -9,6 +9,7 @@ export default function App() {
   const [theme, setTheme] = useState("light");
   const [isSidebarOpen, setSidebarOpen] = useState(true);
   const [completed, setCompleted] = useState<string[]>([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("moodle_tutorial_theme") || "light";
@@ -42,7 +43,13 @@ export default function App() {
 
   const progressPercent = Math.round((completed.length / chapters.length) * 100);
 
-  const grouped = chapters.reduce((acc, chap) => {
+  const filteredChapters = chapters.filter(
+    (chap) =>
+      chap.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      chap.content.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const grouped = filteredChapters.reduce((acc, chap) => {
     if (!acc[chap.category]) acc[chap.category] = [];
     acc[chap.category].push(chap);
     return acc;
@@ -87,7 +94,12 @@ export default function App() {
 
         <div className="search-bar">
           <span className="material-icons-round">search</span>
-          <input type="text" placeholder="Buscar na apostila..." />
+          <input 
+            type="text" 
+            placeholder="Buscar na apostila..." 
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
         </div>
 
         <div className="menu-container">
@@ -102,7 +114,7 @@ export default function App() {
                     onClick={() => setActiveChapter(chap)}
                   >
                     <span className="material-icons-round">{chap.icon}</span>{" "}
-                    {chap.title}
+                    <span className="menu-text">{chap.title}</span>
                   </li>
                 ))}
               </div>
