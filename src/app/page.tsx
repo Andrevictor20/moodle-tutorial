@@ -129,7 +129,7 @@ export default function App() {
                 <span className="material-icons-round" style={{ fontSize: "1.1rem" }}>
                   schedule
                 </span>
-                <span>{activeChapter.time} de leitura</span>
+                <span>{Math.ceil(activeChapter.content.length / 500)} minutos de leitura</span>
                 <span style={{ margin: "0 0.5rem" }}>•</span>
                 <span className="material-icons-round" style={{ fontSize: "1.1rem" }}>
                   local_offer
