@@ -132,10 +132,10 @@ export const chapters = [
 ];
 
 export const getMenuCategories = () => {
-    return chapters.reduce((acc, chap) => {
+    return chapters.reduce((acc: string[], chap) => {
         if (!acc.includes(chap.category)) {
             acc.push(chap.category);
         }
         return acc;
-    }, []);
+    }, [] as string[]);
 };
