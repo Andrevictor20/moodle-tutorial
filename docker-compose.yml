@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   moodle-tutorial:
-    image: ghcr.io/andrevmp/moodle-tutorial:latest
+    image: ghcr.io/andrevictor20/moodle-tutorial:latest
     container_name: moodle-tutorial
     ports:
       - "9800:3000"

@@ -13,7 +13,7 @@ docker-compose up -d
 ```
 
 O que isso faz?
-- **Serviço Web:** Baixa a imagem `ghcr.io/SEU-USUARIO/moodle-tutorial:latest` (compilada pelas Github Actions) e a roda na porta `9800`.
+- **Serviço Web:** Baixa a imagem `ghcr.io/andrevictor20/moodle-tutorial:latest` (compilada pelas Github Actions) e a roda na porta `9800`.
 - **Watchtower:** Fica monitorando o Github Container Registry. Se o Github Actions subir uma nova imagem (porque você fez um `git push`), o Watchtower baixa a nova imagem e reinicia o serviço automaticamente em cerca de 5 minutos!
 
 *Nota: Não esqueça de alterar `SEU-USUARIO` no `docker-compose.yml` para o seu usuário do Github real.*
