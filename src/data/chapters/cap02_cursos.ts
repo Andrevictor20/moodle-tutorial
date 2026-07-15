@@ -30,6 +30,8 @@ export const cursos = [
       <h3>A Mágica do "Modo de Edição"</h3>
       <p>Ao ativar o <em>Toggle Switch</em> no canto superior, toda a tela ganha superpoderes. O grande destaque é o suporte a <strong>Drag-and-Drop Bidirecional</strong>: você pode mover uma atividade arrastando-a na região central (útil para mover pertinho) ou arrastando-a diretamente para o <strong>Course Index</strong> (gaveta esquerda) se precisar enviá-la lá para o Módulo 15 sem rolar a tela!</p>
 
+      <img src="/images/moodle_course_edit.png" alt="Interface real do Modo de Edição de Cursos no Moodle" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); margin: 2rem 0; border: 1px solid #eaeaea;" />
+
       <h3>O Activity Chooser</h3>
       <p>O botão <em>"Adicionar uma atividade ou recurso"</em> abre o <strong>Activity Chooser</strong>, um modal categorizado que exibe todas as atividades e recursos disponíveis com ícones, descrições e até uma funcionalidade de busca. No Moodle 5.2, atividades favoritas e as mais usadas aparecem em destaque no topo, agilizando o fluxo de trabalho do professor.</p>
 

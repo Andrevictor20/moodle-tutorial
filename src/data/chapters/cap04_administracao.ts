@@ -33,6 +33,8 @@ export const administracao = [
         <li><strong>Mediana:</strong> Retorna o valor central das notas, ignorando extremos.</li>
       </ul>
 
+      <img src="/images/moodle_gradebook.png" alt="Interface real do Gradebook Setup no Moodle" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); margin: 2rem 0; border: 1px solid #eaeaea;" />
+
       <h3>Fórmulas Matemáticas Avançadas</h3>
       <p>A funcionalidade mais poderosa do Livro de Notas é o uso de <strong>Fórmulas no padrão Excel</strong>. Você atribui "Números de Identificação (ID)" para cada atividade e digita lógicas diretamente:</p>
       <ul>

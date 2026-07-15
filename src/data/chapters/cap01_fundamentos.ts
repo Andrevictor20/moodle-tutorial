@@ -36,6 +36,8 @@ export const fundamentos = [
       <h3>Dashboard Melhorado (Fase 1)</h3>
       <p>O Dashboard do Moodle 5.2 recebeu melhorias de <em>Fase 1</em>: novas instalações agora vêm com layouts otimizados de blocos, posicionamento específico para o <strong>Calendário</strong> e o bloco <strong>Visão Geral de Cursos</strong>. O bloco de Visão Geral ganhou controles persistentes para criar e gerenciar cursos diretamente, reduzindo a fricção para professores que gerenciam múltiplas turmas.</p>
 
+      <img src="/images/moodle_dashboard.png" alt="Interface real do Dashboard do Moodle" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); margin: 2rem 0; border: 1px solid #eaeaea;" />
+
       <h3>Título Persistente e Course Index</h3>
       <p>Uma novidade sutil porém poderosa: o <strong>título do curso agora permanece visível</strong> enquanto o usuário rola a tela para baixo, garantindo que o contexto nunca se perde. O <strong>Course Index</strong> (Índice do Curso), localizado na gaveta esquerda, continua sendo um mapa interativo de todo o conteúdo, indicando visualmente com <em>círculos verdes</em> quais atividades o aluno já completou, e suportando <em>Drag and Drop</em> no Modo de Edição.</p>
     `,

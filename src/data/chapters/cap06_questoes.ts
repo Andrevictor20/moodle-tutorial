@@ -25,6 +25,8 @@ export const questoes = [
         <li><strong>Questões de Quiz:</strong> Questões criadas diretamente dentro de um Quiz ficam restritas ao contexto daquele questionário específico. São ideais para perguntas ad-hoc.</li>
         <li><strong>Bancos de Questões do Curso:</strong> Acessados via <em>Navegação do Curso → Mais → Bancos de Questões</em>, essas questões podem ser compartilhadas entre múltiplos cursos e com outros professores.</li>
       </ul>
+
+      <img src="/images/moodle_question_bank.png" alt="Interface real do Banco de Questões no Moodle" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); margin: 2rem 0; border: 1px solid #eaeaea;" />
       
       <h3>Gerenciamento de Acesso</h3>
       <p>O proprietário de um banco pode conceder acesso a outros professores, que passam a poder:</p>
