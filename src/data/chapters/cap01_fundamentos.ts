@@ -1,88 +1,86 @@
 export const fundamentos = [
   {
     id: "m4-intro",
-    title: "A Revolução do Moodle 4.x",
+    title: "Arquitetura e Navegação do Moodle 4.x",
     category: "Fundamentos",
     icon: "bolt",
     content: `
-      <p>O Moodle 4 chegou revolucionando a experiência de ensino a distância. Com um foco cirúrgico em <strong>Experiência do Usuário (UX)</strong>, a nova interface (Boost) remove a complexidade e abraça o design limpo.</p>
-      <img src="/images/moodle_dashboard_premium.png" alt="Dashboard Premium Moodle 4" style="width: 100%; border-radius: 8px; margin: 1.5rem 0; box-shadow: 0 4px 15px rgba(0,0,0,0.1);" />
-      <h3>Principais Novidades:</h3>
-      <ul>
-        <li><strong>Navegação Principal (Topo):</strong> O menu esquerdo antigo foi substituído por uma barra superior limpa com links diretos para <em>Painel</em>, <em>Meus Cursos</em> e <em>Administração</em>.</li>
-        <li><strong>Índice do Curso:</strong> Uma nova gaveta expansível na esquerda permite navegar instantaneamente entre os tópicos do curso sem perder o contexto.</li>
-        <li><strong>Modo de Edição Rápido:</strong> O botão "Ativar Edição" agora é um moderno <em>Toggle Switch</em> no canto superior direito.</li>
-      </ul>
+      <p>O Moodle 4.x representa a maior mudança arquitetural na história da plataforma. O antigo "Menu de Navegação" e o "Bloco de Administração" foram consolidados em uma interface orientada a abas e gavetas expansíveis (Drawers).</p>
+      
+      <div class="mermaid" style="text-align: center; margin: 2rem 0;">
+      graph TD
+        A[Dashboard / Painel] --> B(Navegação Primária)
+        B --> C[Início do Site]
+        B --> D[Meus Cursos]
+        B --> E[Administração do Site]
+        
+        D --> F(Dentro do Curso)
+        F --> G[Course Index Drawer<br>Gaveta Esquerda]
+        F --> H[Block Drawer<br>Gaveta Direita]
+        F --> I[Secondary Navigation<br>Abas do Curso]
+        
+        style A fill:#f9f9f9,stroke:#333,stroke-width:2px
+        style F fill:#e6f7ff,stroke:#1890ff,stroke-width:2px
+        style G fill:#f6ffed,stroke:#52c41a,stroke-width:2px
+      </div>
+
+      <h3>A Navegação Primária e Secundária</h3>
+      <p>No topo da tela, a <strong>Navegação Primária</strong> fixa oferece acesso universal ao Painel e Meus Cursos. Quando você entra em um curso, uma nova linha aparece abaixo dela: a <strong>Navegação Secundária</strong>. É nela que o professor encontra as configurações do curso, participantes, notas e relatórios, sem precisar caçar blocos escondidos.</p>
+      
+      <h3>O Course Index (Índice do Curso)</h3>
+      <p>Localizado na gaveta esquerda (Left Drawer), o Course Index é um mapa interativo de todo o conteúdo. Ele não apenas permite pular instantaneamente para qualquer módulo, como também indica visualmente (com círculos verdes) quais atividades o aluno já completou. Para professores em Modo de Edição, este índice permite reorganizar o curso inteiro via <em>Drag and Drop</em>.</p>
     `,
     quiz: {
-      question: "Qual foi a principal motivação por trás do Moodle 4?",
+      question: "No Moodle 4, onde o professor deve procurar para encontrar as configurações de Participantes e Relatórios de um curso específico?",
       options: [
-        "Aumentar o uso de memória do servidor",
-        "Simplificar a interface focando na Experiência do Usuário (UX)",
-        "Remover totalmente o suporte a temas",
-        "Tornar o sistema exclusivo para smartphones"
+        "No Bloco de Administração antigo, na lateral esquerda.",
+        "Na Navegação Secundária, que aparece como abas horizontais no topo assim que você entra no curso.",
+        "Na Gaveta de Blocos (Right Drawer).",
+        "Apenas no Painel Principal do site."
       ],
       correct_index: 1,
-      feedback_correct: "Exatamente! O Moodle 4 focou pesado em UX, trazendo gavetas laterais modernas, barra de navegação no topo e uma interface muito mais limpa."
-    }
-  },
-  {
-    id: "m4-dashboard",
-    title: "O Novo Dashboard e Linha do Tempo",
-    category: "Fundamentos",
-    icon: "space_dashboard",
-    content: `
-      <p>O <strong>Dashboard (Painel)</strong> é a tela de boas-vindas do usuário. No Moodle 4, ele foi completamente redesenhado para destacar o que realmente importa: <strong>O Progresso do Aluno</strong>.</p>
-      <h3>Componentes Chave do Dashboard:</h3>
-      <ul>
-        <li><strong>Bloco de Cursos:</strong> Exibe os cursos do aluno em formato de Cartões (Cards) arredondados com barras de progresso circulares maravilhosas.</li>
-        <li><strong>Linha do Tempo (Timeline):</strong> Um bloco super inteligente que lista todas as atividades e prazos que estão vencendo nos próximos dias. Ele possui botões diretos como "Enviar Tarefa" ali mesmo no painel!</li>
-        <li><strong>Calendário Integrado:</strong> Destaca datas de provas, fechamento de fóruns e eventos do sistema.</li>
-      </ul>
-      <div class="alert-tip" style="margin-top: 1rem; padding: 1rem; border-left: 4px solid #38a169; background: rgba(56,161,105,0.1);">
-        <strong>Dica de Mestre:</strong> Como administrador, você pode "forçar" um layout de painel padrão para todos os novos usuários, garantindo que eles vejam a Linha do Tempo no lugar perfeito!
-      </div>
-    `,
-    quiz: {
-      question: "Qual bloco do Dashboard é responsável por avisar o aluno sobre prazos próximos e provas vencendo?",
-      options: [
-        "Bloco HTML",
-        "Resumo dos Cursos",
-        "Linha do Tempo (Timeline)",
-        "Usuários Online"
-      ],
-      correct_index: 2,
-      feedback_correct: "Correto! A Linha do Tempo é a ferramenta central de organização de tempo no Moodle."
+      feedback_correct: "Correto! A Navegação Secundária contextual substituiu a necessidade de vasculhar o antigo bloco de administração do curso."
     }
   },
   {
     id: "m4-perfis",
-    title: "Gestão de Perfis de Usuário",
+    title: "Hierarquia de Contextos e Permissões",
     category: "Fundamentos",
-    icon: "people",
+    icon: "admin_panel_settings",
     content: `
-      <p>O Moodle baseia-se em <strong>Papéis (Roles)</strong>, que definem o que cada um pode fazer (Permissões) dentro de um Contexto (Curso, Categoria ou Sistema).</p>
-      <p>Os papéis padrão mais importantes são:</p>
-      <ul>
-        <li><strong>Administrador:</strong> O "Deus" do sistema. Tem acesso a TUDO, pode instalar plugins, mudar o tema visual e criar categorias.</li>
-        <li><strong>Gerente (Manager):</strong> Um administrador com poderes ligeiramente reduzidos. Pode criar cursos e matricular pessoas, mas geralmente não mexe no código do servidor.</li>
-        <li><strong>Criador de Cursos:</strong> Permissão apenas para criar cursos dentro das categorias liberadas.</li>
-        <li><strong>Professor (Editing Teacher):</strong> O dono do curso. Pode adicionar aulas, PDFs, questionários, dar notas e apagar mensagens do fórum.</li>
-        <li><strong>Professor Não-Editor:</strong> Ideal para "Monitores" ou tutores auxiliares. Pode dar nota e interagir, mas não pode alterar o conteúdo da aula.</li>
-        <li><strong>Estudante:</strong> Tem permissão para consumir conteúdo, enviar tarefas e responder quizzes. Não pode editar o curso.</li>
-      </ul>
-      <p>Você pode inclusive criar <strong>papéis personalizados</strong>, como "Coordenador Pedagógico" que tem permissão apenas para ver o Livro de Notas de todos os cursos, mas não pode editar aulas.</p>
+      <p>A segurança do Moodle é baseada num sistema complexo de <strong>Papéis (Roles)</strong> e <strong>Contextos</strong>. Uma permissão não é global; ela depende de ONDE o usuário está. Você pode ser Professor num curso, e um simples Estudante em outro.</p>
+      
+      <div class="mermaid" style="text-align: center; margin: 2rem 0;">
+      flowchart TD
+        Sys[Contexto: Sistema<br>Admin, Criador de Cursos] --> Cat1[Categoria: Exatas]
+        Sys --> Cat2[Categoria: Humanas]
+        
+        Cat1 --> Cur1[Curso: Cálculo I<br>Professor, Estudante]
+        Cat1 --> Cur2[Curso: Física<br>Professor Não-Editor]
+        
+        Cur1 --> Mod1[Módulo: Fórum de Dúvidas]
+        Cur1 --> Mod2[Módulo: Questionário Final]
+        
+        style Sys fill:#ffe58f,stroke:#faad14,stroke-width:2px
+        style Cur1 fill:#bae7ff,stroke:#1890ff,stroke-width:2px
+      </div>
+
+      <h3>Como as Permissões se Propagam</h3>
+      <p>Se você atribui o papel de <em>Criador de Cursos</em> a um usuário no <strong>Contexto do Sistema</strong>, ele poderá criar cursos em qualquer lugar. Mas se você atribui esse mesmo papel no <strong>Contexto da Categoria 'Humanas'</strong>, ele só poderá agir ali dentro.</p>
+      
+      <h3>Substituição de Papéis (Overrides)</h3>
+      <p>Imagine que você tem um aluno brilhante e quer que ele seja um "Moderador" apenas em um Fórum específico, mas continue sendo Estudante no resto do curso. No Moodle, você acessa as permissões locais daquele <strong>Módulo</strong> e faz um <em>Override</em> (Sobreposição), dando a ele o poder temporário de apagar mensagens apenas ali.</p>
     `,
     quiz: {
-      question: "Qual a diferença entre o Professor e o Professor Não-Editor?",
+      question: "Se um usuário recebe o papel de 'Gerente' (Manager) no contexto de uma Categoria específica, o que acontece?",
       options: [
-        "O Professor não pode dar notas, o Não-Editor pode.",
-        "O Professor pode alterar o conteúdo do curso (adicionar PDFs, quizzes), o Não-Editor só pode dar notas e interagir com alunos.",
-        "Não existe diferença no Moodle 4.",
-        "O Professor Não-Editor é um administrador do site."
+        "Ele se torna Gerente de todo o site Moodle.",
+        "Ele herda as permissões de Gerente apenas para os cursos que estão dentro daquela Categoria e de suas subcategorias.",
+        "Ele não pode mais ser aluno em nenhum curso.",
+        "O Moodle bloqueia a ação, pois Gerentes só existem no Contexto de Sistema."
       ],
       correct_index: 1,
-      feedback_correct: "Perfeito! Professores Não-Editores são tutores/monitores: avaliam alunos e moderam fóruns, mas não constroem a página do curso."
+      feedback_correct: "Exatamente! As permissões 'descem' (cascateiam) pela hierarquia. Ele será gerente apenas naquele 'galho' da árvore."
     }
   }
 ];

@@ -5,11 +5,16 @@ import { chapters } from "@/data/chapters";
 
 export default function PrintPage() {
   useEffect(() => {
-    // Dá um tempinho para as fontes/ícones carregarem e abre a caixa de impressão
-    const timer = setTimeout(() => {
-      window.print();
-    }, 1000);
-    return () => clearTimeout(timer);
+    // Processa os diagramas antes de abrir a janela de impressão
+    import('mermaid').then((mermaid) => {
+      mermaid.default.initialize({ startOnLoad: false, theme: 'default', securityLevel: 'loose' });
+      mermaid.default.run({ querySelector: '.mermaid' }).finally(() => {
+        // Dá um tempinho para a renderização visual e fontes
+        const timer = setTimeout(() => {
+          window.print();
+        }, 1500);
+      });
+    });
   }, []);
 
   return (
