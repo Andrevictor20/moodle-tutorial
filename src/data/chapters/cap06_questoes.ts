@@ -9,12 +9,12 @@ export const questoes = [
 
       <div class="mermaid" style="text-align: center; margin: 2rem 0;">
       flowchart TD
-        ProfA[Professor A<br>Criador do Banco] --> BQ[Banco de Questões Compartilhado<br>250 questões de Matemática]
-        ProfA -->|Concede Acesso| ProfB[Professor B<br>Colaborador]
+        ProfA["Professor A<br>Criador do Banco"] --> BQ["Banco de Questões Compartilhado<br>250 questões de Matemática"]
+        ProfA -->|Concede Acesso| ProfB["Professor B<br>Colaborador"]
         
-        BQ --> Q1[Quiz: Prova de Cálculo I<br>Curso de Engenharia]
-        BQ --> Q2[Quiz: Simulado de Cálculo<br>Curso de Física]
-        BQ --> Q3[Quiz: Revisão de Matemática<br>Curso de Química]
+        BQ --> Q1["Quiz: Prova de Cálculo I<br>Curso de Engenharia"]
+        BQ --> Q2["Quiz: Simulado de Cálculo<br>Curso de Física"]
+        BQ --> Q3["Quiz: Revisão de Matemática<br>Curso de Química"]
         
         ProfB -->|Adiciona questões| BQ
       </div>

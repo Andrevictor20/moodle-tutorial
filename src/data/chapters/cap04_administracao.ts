@@ -9,17 +9,17 @@ export const administracao = [
 
       <div class="mermaid" style="text-align: center; margin: 2rem 0;">
       flowchart TD
-        Total[Total do Curso<br>Agregação: Soma Natural]
-        Total --> C1[1º Bimestre<br>Peso: 40%]
-        Total --> C2[2º Bimestre<br>Peso: 60%]
+        Total["Total do Curso<br>Agregação: Soma Natural"]
+        Total --> C1["1º Bimestre<br>Peso: 40%"]
+        Total --> C2["2º Bimestre<br>Peso: 60%"]
         
-        C1 --> A1(Fórum Avaliativo - 10 pts)
-        C1 --> A2(Tarefa Escrita - 20 pts)
-        C1 --> A3(Quiz Rápido - 20 pts)
+        C1 --> A1("Fórum Avaliativo - 10 pts")
+        C1 --> A2("Tarefa Escrita - 20 pts")
+        C1 --> A3("Quiz Rápido - 20 pts")
         
-        C2 --> A4(Projeto em Grupo - 30 pts)
-        C2 --> A5(Prova Final - 50 pts)
-        C2 --> A6(Lição Opcional - 10 pts<br>Crédito Extra!)
+        C2 --> A4("Projeto em Grupo - 30 pts")
+        C2 --> A5("Prova Final - 50 pts")
+        C2 --> A6("Lição Opcional - 10 pts<br>Crédito Extra!")
       </div>
 
       <h3>Métricas e Tipos de Agregação</h3>

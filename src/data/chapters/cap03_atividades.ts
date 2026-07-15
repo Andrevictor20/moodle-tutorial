@@ -8,16 +8,16 @@ export const atividades = [
       <p>A separação entre <strong>Recurso</strong> (passivo — o aluno apenas lê/assiste) e <strong>Atividade</strong> (ativo — o aluno produz algo avaliável) é o núcleo pedagógico do Moodle. Entre as atividades nativas, a <em>Lição (Lesson)</em> e o <em>H5P</em> representam o estado da arte para conteúdo interativo e adaptativo.</p>
 
       <div class="mermaid" style="text-align: center; margin: 2rem 0;">
-      graph TD
-        Start((Início)) --> L1[Página de Conteúdo: Anatomia Humana]
-        L1 --> Q1{Pergunta: Qual o maior órgão?}
-        Q1 -->|Errou| R1[Página de Revisão: A Pele]
+      flowchart TD
+        Start(("Início")) --> L1["Página de Conteúdo: Anatomia Humana"]
+        L1 --> Q1{"Pergunta: Qual o maior órgão?"}
+        Q1 -->|Errou| R1["Página de Revisão: A Pele"]
         R1 --> Q1
-        Q1 -->|Acertou| L2[Página de Conteúdo: O Cérebro]
-        L2 --> Q2{Pergunta: Quantos neurônios?}
-        Q2 -->|Errou| R2[Revisão: Neurociência Básica]
+        Q1 -->|Acertou| L2["Página de Conteúdo: O Cérebro"]
+        L2 --> Q2{"Pergunta: Quantos neurônios?"}
+        Q2 -->|Errou| R2["Revisão: Neurociência Básica"]
         R2 --> Q2
-        Q2 -->|Acertou| F((Fim da Lição))
+        Q2 -->|Acertou| F(("Fim da Lição"))
       </div>
 
       <h3>Trilhas Ramificadas com a 'Lição'</h3>
@@ -62,21 +62,21 @@ export const atividades = [
       <div class="mermaid" style="text-align: center; margin: 2rem 0;">
       flowchart LR
         subgraph Banco de Questões
-          C1[Cat: Fácil<br>50 questões]
-          C2[Cat: Médio<br>80 questões]
-          C3[Cat: Difícil<br>30 questões]
+          C1["Cat: Fácil<br>50 questões"]
+          C2["Cat: Médio<br>80 questões"]
+          C3["Cat: Difícil<br>30 questões"]
         end
         
         subgraph Quiz 1 - Recuperação
-          Q1(10 aleatórias de Fácil)
+          Q1("10 aleatórias de Fácil")
         end
         
         subgraph Quiz 2 - Prova Final
-          Q2(5 Fácil + 5 Médio + 5 Difícil)
+          Q2("5 Fácil + 5 Médio + 5 Difícil")
         end
         
         subgraph Quiz 3 - Desafio
-          Q3(10 aleatórias de Difícil)
+          Q3("10 aleatórias de Difícil")
         end
         
         C1 -.-> Q1

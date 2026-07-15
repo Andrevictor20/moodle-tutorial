@@ -9,25 +9,25 @@ export const infraestrutura = [
 
       <div class="mermaid" style="text-align: center; margin: 2rem 0;">
       flowchart TD
-        Curso[Curso: Cálculo I<br>15 atividades + 200 alunos] --> Wizard[Backup Wizard]
+        Curso["Curso: Cálculo I<br>15 atividades + 200 alunos"] --> Wizard["Backup Wizard"]
         
-        Wizard --> Sel{Selecionar Conteúdo}
-        Sel --> Inc1[✅ Atividades e Recursos]
-        Sel --> Inc2[✅ Configurações do Curso]
-        Sel --> Inc3[⬜ Dados de Alunos]
-        Sel --> Inc4[⬜ Notas e Submissões]
+        Wizard --> Sel{"Selecionar Conteúdo"}
+        Sel --> Inc1["✅ Atividades e Recursos"]
+        Sel --> Inc2["✅ Configurações do Curso"]
+        Sel --> Inc3["⬜ Dados de Alunos"]
+        Sel --> Inc4["⬜ Notas e Submissões"]
         
-        Inc1 --> MBZ[Arquivo .mbz Gerado]
+        Inc1 --> MBZ["Arquivo .mbz Gerado"]
         Inc2 --> MBZ
         
-        MBZ --> D1[Download Local]
-        MBZ --> D2[Área Privada de Backup]
+        MBZ --> D1["Download Local"]
+        MBZ --> D2["Área Privada de Backup"]
         
-        D1 --> Restore[Restaurar em Outro Curso]
+        D1 --> Restore["Restaurar em Outro Curso"]
         D2 --> Restore
         
-        Restore --> New[Novo Curso Vazio]
-        Restore --> Merge[Merge com Curso Existente]
+        Restore --> New["Novo Curso Vazio"]
+        Restore --> Merge["Merge com Curso Existente"]
       </div>
 
       <h3>Backup Manual — Passo a Passo</h3>
@@ -89,18 +89,18 @@ export const infraestrutura = [
 
       <div class="mermaid" style="text-align: center; margin: 2rem 0;">
       flowchart LR
-        Browser[Navegador do Usuário<br>Chrome / Firefox / Safari] --> Web[Servidor Web<br>Apache ou Nginx]
-        Web --> PHP[PHP 8.3+ ou 8.4<br>Módulos: curl, mbstring,<br>xml, zip, gd, intl]
-        PHP --> DB[(Banco de Dados)]
+        Browser["Navegador do Usuário<br>Chrome / Firefox / Safari"] --> Web["Servidor Web<br>Apache ou Nginx"]
+        Web --> PHP["PHP 8.3+ ou 8.4<br>Módulos: curl, mbstring,<br>xml, zip, gd, intl"]
+        PHP --> DB[("Banco de Dados")]
         
-        DB --> PG[PostgreSQL 16+]
-        DB --> MY[MySQL 8.4+]
-        DB --> MA[MariaDB 10.11+]
-        DB --> MS[SQL Server 2019+]
+        DB --> PG["PostgreSQL 16+"]
+        DB --> MY["MySQL 8.4+"]
+        DB --> MA["MariaDB 10.11+"]
+        DB --> MS["SQL Server 2019+"]
         
-        PHP --> FS[Sistema de Arquivos<br>moodledata/]
-        PHP --> Cache[Cache: Redis / Memcached]
-        PHP --> Cron[Cron Job<br>Executa a cada 1 min]
+        PHP --> FS["Sistema de Arquivos<br>moodledata/"]
+        PHP --> Cache["Cache: Redis / Memcached"]
+        PHP --> Cron["Cron Job<br>Executa a cada 1 min"]
       </div>
 
       <h3>Requisitos Mínimos do Moodle 5.2</h3>

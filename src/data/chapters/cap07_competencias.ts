@@ -9,17 +9,17 @@ export const competencias = [
 
       <div class="mermaid" style="text-align: center; margin: 2rem 0;">
       flowchart TD
-        FW[Framework de Competências<br>Ex: BNCC Matemática] --> C1[Competência: Raciocínio Lógico]
-        FW --> C2[Competência: Resolução de Problemas]
-        FW --> C3[Competência: Pensamento Algébrico]
+        FW["Framework de Competências<br>Ex: BNCC Matemática"] --> C1["Competência: Raciocínio Lógico"]
+        FW --> C2["Competência: Resolução de Problemas"]
+        FW --> C3["Competência: Pensamento Algébrico"]
         
-        C1 --> Esc[Escala: Não Competente → Básico → Proficiente → Avançado]
+        C1 --> Esc["Escala: Não Competente → Básico → Proficiente → Avançado"]
         C2 --> Esc
         C3 --> Esc
         
-        C1 --> Curso1[Curso: Cálculo I<br>Atividade: Quiz Final]
+        C1 --> Curso1["Curso: Cálculo I<br>Atividade: Quiz Final"]
         C2 --> Curso1
-        C2 --> Curso2[Curso: Física<br>Atividade: Projeto Lab]
+        C2 --> Curso2["Curso: Física<br>Atividade: Projeto Lab"]
         C3 --> Curso1
       </div>
 
@@ -74,16 +74,16 @@ export const competencias = [
 
       <div class="mermaid" style="text-align: center; margin: 2rem 0;">
       flowchart LR
-        Template[Template do Plano<br>Formação em Data Science] --> C1[Competência: Python Básico]
-        Template --> C2[Competência: SQL Avançado]
-        Template --> C3[Competência: Machine Learning]
-        Template --> C4[Competência: Visualização de Dados]
+        Template["Template do Plano<br>Formação em Data Science"] --> C1["Competência: Python Básico"]
+        Template --> C2["Competência: SQL Avançado"]
+        Template --> C3["Competência: Machine Learning"]
+        Template --> C4["Competência: Visualização de Dados"]
         
-        Template -->|Atribuição em massa| Coorte[Coorte: Turma DS 2026<br>200 alunos]
+        Template -->|Atribuição em massa| Coorte["Coorte: Turma DS 2026<br>200 alunos"]
         
-        Coorte --> Aluno1[Plano Individual: João<br>2 de 4 competências]
-        Coorte --> Aluno2[Plano Individual: Maria<br>4 de 4 competências ✅]
-        Coorte --> AlunoN[Plano Individual: Carlos<br>0 de 4 competências]
+        Coorte --> Aluno1["Plano Individual: João<br>2 de 4 competências"]
+        Coorte --> Aluno2["Plano Individual: Maria<br>4 de 4 competências ✅"]
+        Coorte --> AlunoN["Plano Individual: Carlos<br>0 de 4 competências"]
       </div>
 
       <h3>Templates de Planos de Aprendizagem</h3>

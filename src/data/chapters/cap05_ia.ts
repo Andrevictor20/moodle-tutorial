@@ -9,20 +9,20 @@ export const ia = [
 
       <div class="mermaid" style="text-align: center; margin: 2rem 0;">
       flowchart TD
-        Admin[Administrador do Site] --> Config[Site Admin → General → AI Providers]
-        Config --> Inst[Criar Instância de Provedor]
+        Admin["Administrador do Site"] --> Config["Site Admin → General → AI Providers"]
+        Config --> Inst["Criar Instância de Provedor"]
         
-        Inst --> G[Google Gemini<br>API Key do AI Studio]
-        Inst --> B[Amazon Bedrock<br>IAM User + Region]
+        Inst --> G["Google Gemini<br>API Key do AI Studio"]
+        Inst --> B["Amazon Bedrock<br>IAM User + Region"]
         
-        G --> Actions[Ações de IA Disponíveis]
+        G --> Actions["Ações de IA Disponíveis"]
         B --> Actions
         
-        Actions --> A1[Gerar Texto]
-        Actions --> A2[Resumir Conteúdo]
-        Actions --> A3[Gerar Imagem]
+        Actions --> A1["Gerar Texto"]
+        Actions --> A2["Resumir Conteúdo"]
+        Actions --> A3["Gerar Imagem"]
         
-        A1 --> Prof[Professor usa no Curso]
+        A1 --> Prof["Professor usa no Curso"]
         A2 --> Prof
         A3 --> Prof
       </div>

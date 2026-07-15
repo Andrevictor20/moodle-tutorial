@@ -8,23 +8,23 @@ export const fundamentos = [
       <p>O <strong>Moodle 5.2</strong>, lançado em abril de 2026, consolida a maior revolução de UX da história da plataforma. Desde a versão 4.0, o antigo "Menu de Navegação" e o "Bloco de Administração" foram substituídos por uma interface orientada a <strong>abas horizontais</strong> e <strong>gavetas laterais expansíveis (Drawers)</strong>. O Moodle 5.2 refina ainda mais essa experiência com melhorias no Dashboard, uma nova página de login redesenhada e títulos de curso persistentes durante a rolagem da tela.</p>
 
       <div class="mermaid" style="text-align: center; margin: 2rem 0;">
-      graph TD
-        Login[Página de Login Redesenhada<br>Moodle 5.2] --> A[Dashboard / Painel<br>Fase 1 Melhorada]
-        A --> B(Navegação Primária)
-        B --> C[Início do Site]
-        B --> D[Meus Cursos]
-        B --> E[Administração do Site]
+      flowchart TD
+        Login["Página de Login Redesenhada<br>Moodle 5.2"] --> A["Dashboard / Painel<br>Fase 1 Melhorada"]
+        A --> B("Navegação Primária")
+        B --> C["Início do Site"]
+        B --> D["Meus Cursos"]
+        B --> E["Administração do Site"]
         
-        D --> F(Dentro do Curso)
-        F --> G[Índice do Curso<br>Gaveta Esquerda]
-        F --> H[Gaveta de Blocos<br>Gaveta Direita]
-        F --> I[Navegação Secundária<br>Abas do Curso]
+        D --> F("Dentro do Curso")
+        F --> G["Índice do Curso<br>Gaveta Esquerda"]
+        F --> H["Gaveta de Blocos<br>Gaveta Direita"]
+        F --> I["Navegação Secundária<br>Abas do Curso"]
         
-        I --> I1[Configurações]
-        I --> I2[Participantes]
-        I --> I3[Notas]
-        I --> I4[Relatórios]
-        I --> I5[Banco de Questões]
+        I --> I1["Configurações"]
+        I --> I2["Participantes"]
+        I --> I3["Notas"]
+        I --> I4["Relatórios"]
+        I --> I5["Banco de Questões"]
       </div>
 
       <h3>Novidades da Interface no Moodle 5.2</h3>
@@ -63,18 +63,18 @@ export const fundamentos = [
 
       <div class="mermaid" style="text-align: center; margin: 2rem 0;">
       flowchart TD
-        Sys[Contexto: Sistema<br>Administrador Global] --> User[Contexto: Usuário<br>Perfil Individual]
-        Sys --> Cat1[Categoria: Ciências Exatas]
-        Sys --> Cat2[Categoria: Ciências Humanas]
+        Sys["Contexto: Sistema<br>Administrador Global"] --> User["Contexto: Usuário<br>Perfil Individual"]
+        Sys --> Cat1["Categoria: Ciências Exatas"]
+        Sys --> Cat2["Categoria: Ciências Humanas"]
         
-        Cat1 --> Sub1[Subcategoria: Engenharia]
-        Cat1 --> Cur2[Curso: Física Geral<br>Professor Não-Editor]
+        Cat1 --> Sub1["Subcategoria: Engenharia"]
+        Cat1 --> Cur2["Curso: Física Geral<br>Professor Não-Editor"]
         
-        Sub1 --> Cur1[Curso: Cálculo I<br>Professor + Estudante]
+        Sub1 --> Cur1["Curso: Cálculo I<br>Professor + Estudante"]
         
-        Cur1 --> Mod1[Módulo: Fórum de Dúvidas<br>Override: Moderador Local]
-        Cur1 --> Mod2[Módulo: Questionário Final]
-        Cur1 --> Blc1[Bloco: Calendário do Curso]
+        Cur1 --> Mod1["Módulo: Fórum de Dúvidas<br>Override: Moderador Local"]
+        Cur1 --> Mod2["Módulo: Questionário Final"]
+        Cur1 --> Blc1["Bloco: Calendário do Curso"]
       </div>
 
       <h3>Os 5 Níveis de Contexto</h3>
