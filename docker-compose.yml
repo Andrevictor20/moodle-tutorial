@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   moodle-tutorial:
     image: ghcr.io/andrevictor20/moodle-tutorial:latest
@@ -12,6 +10,7 @@ services:
   watchtower:
     image: containrrr/watchtower
     container_name: watchtower
+    command: moodle-tutorial
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
