@@ -115,7 +115,7 @@ export default function App() {
                 {theme === "light" ? "dark_mode" : "light_mode"}
               </span>
             </button>
-            <a href="/Apostila_Moodle_Completa.pdf" download className="icon-btn" title="Exportar para PDF">
+            <a href="/print" target="_blank" className="icon-btn" title="Gerar PDF para Impressão">
               <span className="material-icons-round">picture_as_pdf</span>
             </a>
           </div>
