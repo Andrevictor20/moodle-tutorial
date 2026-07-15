@@ -36,6 +36,7 @@ export const competencias = [
         <li>Defina o nome (ex: "BNCC Matemática"), a descrição e a <strong>escala de avaliação</strong>.</li>
         <li>Adicione competências individuais dentro do framework, podendo criar hierarquias (competências pai e filhas).</li>
       </ol>
+      <img src="/images/moodle_competencies.png" alt="Interface real de Frameworks de Competências no Moodle" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); margin: 2rem 0; border: 1px solid #eaeaea;" />
 
       <h3>Escalas de Competência</h3>
       <p>Cada competência é avaliada numa <strong>escala personalizada</strong>. Exemplos:</p>

@@ -45,6 +45,7 @@ export const infraestrutura = [
         <li>Confirme a seleção e aguarde a geração do arquivo.</li>
         <li>Faça o <strong>download</strong> do <code>.mbz</code> ou deixe-o na Área Privada de Backup do Moodle.</li>
       </ol>
+      <img src="/images/moodle_backup.png" alt="Interface real do Backup Wizard no Moodle" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); margin: 2rem 0; border: 1px solid #eaeaea;" />
 
       <h3>Restauração de Curso</h3>
       <p>O processo de restauração oferece duas opções:</p>
@@ -137,6 +138,7 @@ export const infraestrutura = [
         <li><strong>Exportação:</strong> Relatórios podem ser exportados em CSV, Excel, PDF e outros formatos.</li>
         <li><strong>Agendamento:</strong> Relatórios podem ser agendados para envio automático por e-mail a gestores e coordenadores.</li>
       </ul>
+      <img src="/images/moodle_report_builder.png" alt="Interface real do Report Builder no Moodle" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); margin: 2rem 0; border: 1px solid #eaeaea;" />
 
       <h3>Cache e Performance</h3>
       <p>Para instâncias com mais de 500 usuários simultâneos, é altamente recomendado configurar camadas de cache:</p>
